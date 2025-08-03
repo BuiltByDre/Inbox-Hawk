@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InboxHawk: We Hunt the Problems Before They Land.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #2f3640 url('logo-watermark.png') no-repeat center center;
+      background-size: 300px 300px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: #dcdde1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      /* overlay to dim watermark */
+    }
+
+    /* Overlay with low opacity to soften watermark */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(47, 54, 64, 0.85);
+      z-index: -1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #718093; /* lighter slate */
+      text-shadow: 0 0 8px #57606f;
+    }
+
+    h2 {
+      font-weight: 400;
+      margin: 0 0 2rem 0;
+      color: #95a5a6; /* soft gray */
+      text-shadow: 0 0 5px #57606f;
+    }
+
+    p {
+      max-width: 600px;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      color: #dcdde1;
+      text-shadow: 0 0 4px #2f3640;
+    }
+
+    .btn-primary {
+      background: #718093;
+      color: #f5f6fa;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(113, 128, 147, 0.6);
+    }
+
+    .btn-primary:hover {
+      background: #57606f;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      text-shadow: 0 0 2px #2f3640;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>InboxHawk.cloud</h1>
+    <h2>Hunt the Threat, Avoid Regret.</h2>
+  </header>
+
+  <main>
+    <p>
+      Proactive email security and threat detection designed to keep your inbox safe before problems land. 
+      Monitor DMARC, SPF, DKIM, and uncover hidden threats with precision hawk-eyed vision.
+    </p>
+    <a href="mailto:contact@inboxhawk.cloud" class="btn-primary">Get Started</a>
+  </main>
+
+  <footer>
+    &copy; 2025 InboxHawk.cloud &mdash; All rights reserved.
+  </footer>
+</body>
+</html>
