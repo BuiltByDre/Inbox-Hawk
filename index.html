@@ -3,18 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>InboxHawk: We Hunt the Problems Before They Land.</title>
+  <title>InboxHawk - Hunt the Threat, Avoid Regret.</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+    /* Watermark behind all content */
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background-image: url('logo-watermark.jpeg'); /* Replace with your actual path if needed */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.05;
+      z-index: 0;
+      pointer-events: none;
+    }
 
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #2f3640 url('logo-watermark.jpeg') no-repeat center center;
-      background-size: 300px 300px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
+      background-color: #2f3640;
       color: #dcdde1;
       display: flex;
       flex-direction: column;
@@ -24,29 +37,19 @@
       padding: 2rem;
       text-align: center;
       position: relative;
-      /* overlay to dim watermark */
-    }
-
-    /* Overlay with low opacity to soften watermark */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(47, 54, 64, 0.85);
-      z-index: -1;
     }
 
     h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
-      color: #718093; /* lighter slate */
+      color: #718093;
       text-shadow: 0 0 8px #57606f;
     }
 
     h2 {
       font-weight: 400;
       margin: 0 0 2rem 0;
-      color: #95a5a6; /* soft gray */
+      color: #95a5a6;
       text-shadow: 0 0 5px #57606f;
     }
 
@@ -84,6 +87,11 @@
       text-shadow: 0 0 2px #2f3640;
     }
 
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2.25rem;
@@ -92,21 +100,27 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>InboxHawk</h1>
-    <h2>We Hunt Down Problems Before They Land.</h2>
-  </header>
+  <!-- Watermark div (logo background) -->
+  <div class="watermark"></div>
 
-  <main>
-    <p>
-      Proactive email security and threat detection designed to keep your inbox safe before problems land. 
-      Monitor DMARC, SPF, DKIM, and uncover hidden threats with precision hawk-eyed vision.
-    </p>
-    <a href="mailto:contact@inboxhawk.cloud" class="btn-primary">Get Started</a>
-  </main>
+  <!-- Site Content -->
+  <div class="content">
+    <header>
+      <h1>InboxHawk</h1>
+      <h2>We Hunt Problems Before They Land</h2>
+    </header>
 
-  <footer>
-    &copy; 2025 InboxHawk &mdash; All rights reserved.
-  </footer>
+    <main>
+      <p>
+        Proactive email security and threat detection designed to keep your inbox safe before problems land. 
+        Monitor DMARC, SPF, DKIM, and uncover hidden threats with precision hawk-eyed vision.
+      </p>
+      <a href="mailto:contact@inboxhawk.cloud" class="btn-primary">Get Started</a>
+    </main>
+
+    <footer>
+      &copy; 2025 InboxHawk &mdash; All rights reserved.
+    </footer>
+  </div>
 </body>
 </html>
