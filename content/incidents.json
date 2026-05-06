@@ -1,0 +1,47 @@
+[
+  {
+    "id": "fb-google-2019",
+    "year": "2019",
+    "amount": "$121,000,000",
+    "who": "Facebook & Google · Lithuanian invoicing scheme",
+    "headline": "A single attacker billed two of the largest tech companies in the world for over a hundred million dollars.",
+    "body": "Evaldas Rimasauskas posed as Quanta Computer, a legitimate hardware vendor used by both Facebook and Google. Forged invoices and contracts went through email. The scheme ran for years before being unraveled by U.S. federal prosecutors.",
+    "lesson": "If a spoofed sender domain reaches accounts payable, the policy you set on the receiving side and the policy your vendors set on the sending side are the difference between a paid invoice and a fraud."
+  },
+  {
+    "id": "ubiquiti-2015",
+    "year": "2015",
+    "amount": "$46,700,000",
+    "who": "Ubiquiti Networks · CEO impersonation",
+    "headline": "Wire transfers approved by an executive who wasn't.",
+    "body": "Attackers impersonated Ubiquiti executives and external attorneys via spoofed and lookalike email addresses. The finance team in the company's Hong Kong subsidiary moved money on what they thought were authentic instructions. Roughly $8M was eventually recovered.",
+    "lesson": "Executive impersonation is the single most expensive flavor of BEC. Authentication-aligned mail prevents the most direct version of this attack — exact-domain spoofing."
+  },
+  {
+    "id": "toyota-2019",
+    "year": "2019",
+    "amount": "$37,000,000",
+    "who": "Toyota Boshoku Corporation · European subsidiary",
+    "headline": "One fraudulent payment instruction. One quarter of operating income, gone.",
+    "body": "Toyota's auto parts subsidiary in Europe disclosed a $37M loss after staff acted on payment instructions from what appeared to be a trusted business partner. The company's own statement attributed the loss to fraudulent payment directions sent via email.",
+    "lesson": "Vendor and partner spoofing is the BEC pattern that scales. Your authentication posture protects them; theirs protects you. The hawk works both sides of that equation."
+  },
+  {
+    "id": "scoular-2016",
+    "year": "2016",
+    "amount": "$17,200,000",
+    "who": "Scoular Co. · Nebraska commodities trader",
+    "headline": "A 130-year-old commodities firm wired $17M to China based on emailed instructions from a CEO who didn't send them.",
+    "body": "The company's controller sent three wire transfers totaling $17.2M to a bank in China after receiving emails purporting to be from CEO Chuck Elsea, instructing the wires for a confidential acquisition. The emails were forgeries.",
+    "lesson": "Heritage doesn't insulate. Mid-market firms are the sweet spot — large enough to move real money, small enough to lack mature email security programs."
+  },
+  {
+    "id": "crelan-2016",
+    "year": "2016",
+    "amount": "$75,800,000",
+    "who": "Crelan Bank · Belgium",
+    "headline": "A bank — a bank — lost $75M to email fraud.",
+    "body": "The Belgian banking group disclosed the loss after an internal audit revealed that BEC-style fraudulent instructions had moved funds out of the institution. Crelan absorbed the loss without affecting customer deposits.",
+    "lesson": "If a bank can fall for it, a regional law firm or CPA practice can fall for it ten times before lunch. Authentication is not optional."
+  }
+]

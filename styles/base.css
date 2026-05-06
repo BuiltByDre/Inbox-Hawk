@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Base — reset, body defaults, typography
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* offset for sticky nav when jumping to anchors */
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-optical-sizing: auto;
+}
+
+/* ---- Utility classes for typography ---- */
+.serif { font-family: var(--font-serif); }
+.sans { font-family: var(--font-sans); }
+.mono { font-family: var(--font-mono); }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber-500);
+}
+
+.eyebrow.cyan { color: var(--cyan-500); }
+.eyebrow.bone { color: var(--bone-soft); }
+.eyebrow.amber-light { color: var(--amber-400); }
+
+/* ---- Layout helpers ---- */
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (max-width: 768px) {
+  .wrap { padding: 0 var(--gutter-mobile); }
+}
+
+section {
+  padding: 96px 0;
+  position: relative;
+}
+
+@media (max-width: 768px) { section { padding: 64px 0; } }
+@media (max-width: 480px) { section { padding: 56px 0; } }
+
+/* Section heads — used across multiple sections */
+.section-head {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.section-head h2 {
+  font-size: var(--type-h2);
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.section-head p {
+  font-size: var(--type-body-lg);
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .section-head { margin-bottom: 40px; }
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s, color 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--amber-500);
+  color: var(--paper);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+.btn-primary:hover {
+  background: var(--amber-600);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow-amber);
+}
+.btn-primary .arrow { transition: transform 0.2s; }
+.btn-primary:hover .arrow { transform: translateX(3px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+.btn-ghost:hover {
+  border-color: var(--ink);
+  background: rgba(20,24,31,0.04);
+}
+
+.btn-dark {
+  background: var(--slate-900);
+  color: var(--bone);
+}
+.btn-dark:hover {
+  background: var(--slate-800);
+  transform: translateY(-1px);
+}

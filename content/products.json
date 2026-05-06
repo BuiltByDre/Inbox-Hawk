@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tracerhawk",
+    "name": "TracerHawk",
+    "tagline": "AI-powered phishing analysis for non-technical staff.",
+    "status": "live",
+    "statusLabel": "● LIVE",
+    "url": "https://tracerhawk.app",
+    "urlLabel": "tracerhawk.app",
+    "description": "Paste suspicious email headers, get a plain-English verdict with a confidence score in 90 seconds, and download a forensic PDF report suitable for incident records, insurance claims, or law enforcement referral. Stateless architecture. Zero data retention.",
+    "future": "Future capability: mobile detonation — forward a suspicious email from your phone, get an action plan back in minutes. Replaces the hours-long wait for an MSSP analyst or the days-long wait for a help desk ticket.",
+    "icon": "search"
+  },
+  {
+    "id": "dmarchawk",
+    "name": "DMARCHawk",
+    "tagline": "DMARC aggregate report analysis in plain English.",
+    "status": "deploying",
+    "statusLabel": "BUILT — DEPLOYING",
+    "url": "#intake",
+    "urlLabel": "Get notified at launch",
+    "description": "Self-serve DMARC aggregate report analyzer that translates technical XML into plain-English domain health intelligence. Identifies authorized senders, flags failures, and surfaces unauthorized parties attempting to use your domain.",
+    "future": "Powers the Save Play methodology — the disciplined path from p=none to p=reject without breaking your legitimate mail.",
+    "icon": "chart"
+  },
+  {
+    "id": "hawksnest",
+    "name": "HawksNest",
+    "tagline": "Premium intelligence command center.",
+    "status": "in-dev",
+    "statusLabel": "IN DEVELOPMENT",
+    "url": "#intake",
+    "urlLabel": "Join the early access list",
+    "description": "Custom DMARC aggregate ingestion address. Intuitive dashboards. Scheduled cross-provider digests. Agentic abuse reporting that drafts complaints to upstream providers when unauthorized senders are detected — with client approval before any action is taken.",
+    "future": "The fully realized command center for active domain reputation defense.",
+    "icon": "shield"
+  }
+]

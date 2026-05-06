@@ -3,149 +3,690 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InboxHawk: We Hunt Threats Before They Land.</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+  <title>InboxHawk — Your Eye in the Digital Sky | Domain Authentication for Small Firms</title>
+  <meta name="description" content="InboxHawk hunts problems before they land. We move small law firms and CPA practices to DMARC p=reject — full domain authentication, full protection. Founded by Andre Milligan, Baltimore." />
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <!-- TODO (Claude Code): replace with real OG image -->
+  <meta property="og:title" content="InboxHawk — Your Eye in the Digital Sky" />
+  <meta property="og:description" content="Domain authentication and inbound email security for small law firms and CPA practices. Move your domain to DMARC p=reject." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://inboxhawkllc.com" />
+  <meta property="og:image" content="assets/og-image.png" />
 
-    body, html {
-      height: 100%;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #2f3640;
-      color: #dcdde1;
-      overflow: hidden;
-    }
+  <!-- TODO (Claude Code): generate a favicon from the logo -->
+  <link rel="icon" type="image/png" href="assets/inboxhawk-logo.png" />
 
-    .background-img {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('/assets/logo-watermark.jpeg') center center / cover no-repeat;
-      z-index: 0;
-      opacity: 0.05;
-      /* default settled state */
-      transform: scale(1);
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    /* Animation only applied if .animate class is present */
-    .background-img.animate {
-      animation: flyout 1.5s ease-out forwards;
-      opacity: 0.2;
-      transform: scale(1.5);
-    }
-
-    @keyframes flyout {
-      0% {
-        opacity: 0.2;
-        transform: scale(1.5);
-      }
-      100% {
-        opacity: 0.05;
-        transform: scale(1);
-      }
-    }
-
-    .hero {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 4rem;
-      color: #718093;
-      text-shadow: 0 0 10px #57606f;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: #95a5a6;
-      margin-bottom: 2rem;
-    }
-
-    p {
-      max-width: 600px;
-      font-size: 1.2rem;
-      color: #dcdde1;
-      margin-bottom: 2.5rem;
-    }
-
-    .btn-primary {
-      background-color: #718093;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background-color: #57606f;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 1rem;
-      width: 100%;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #7f8c8d;
-      z-index: 1;
-    }
-  </style>
+  <!-- Stylesheets — order matters: tokens → base → nav → hero → components → carousel → sections -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/nav.css" />
+  <link rel="stylesheet" href="styles/hero.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/carousel.css" />
+  <link rel="stylesheet" href="styles/sections.css" />
 </head>
 <body>
-  <div id="backgroundImg" class="background-img"></div>
 
-  <div class="hero">
-    <h1>InboxHawk</h1>
-    <h2>We Hunt the Problems Before They Land.</h2>
-    <p>InboxHawk is an inbound email security platform that monitors, detects, and thwarts threats before they ever reach your inbox. Designed for teams that can't afford a slip.</p>
-    <button class="btn-primary">Get Started</button>
+<!-- ============ NAV ============ -->
+<nav class="top">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="assets/inboxhawk-logo.png" alt="InboxHawk" class="brand-logo" />
+      <div class="brand-text">
+        <strong>InboxHawk</strong>
+        <span>Your eye in the digital sky</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#threat">The Threat</a>
+      <a href="#compliance">Compliance</a>
+      <a href="#tools">Tools</a>
+      <a href="#checker">Check Domain</a>
+      <a href="#intake" class="nav-cta">Get an Assessment →</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile slide-out menu -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#threat" class="mobile-link">The Threat</a>
+  <a href="#incidents" class="mobile-link">Real Incidents</a>
+  <a href="#floor" class="mobile-link">Compliance Floor</a>
+  <a href="#compliance" class="mobile-link">Industry Compliance</a>
+  <a href="#tools" class="mobile-link">Our Tools</a>
+  <a href="#checker" class="mobile-link">Check My Domain</a>
+  <a href="#audience" class="mobile-link">Who This Is For</a>
+  <a href="#founder" class="mobile-link">Founder</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#intake" class="mobile-link mobile-cta">Get an Assessment →</a>
+</div>
+
+<!-- Desktop section rail -->
+<div class="section-rail" id="sectionRail">
+  <a href="#top" class="rail-dot" data-section="top"><span class="label">Top</span></a>
+  <a href="#threat" class="rail-dot" data-section="threat"><span class="label">The Threat</span></a>
+  <a href="#incidents" class="rail-dot" data-section="incidents"><span class="label">Real Incidents</span></a>
+  <a href="#floor" class="rail-dot" data-section="floor"><span class="label">Compliance Floor</span></a>
+  <a href="#compliance" class="rail-dot" data-section="compliance"><span class="label">Industry Compliance</span></a>
+  <a href="#tools" class="rail-dot" data-section="tools"><span class="label">Tools</span></a>
+  <a href="#checker" class="rail-dot" data-section="checker"><span class="label">Check Domain</span></a>
+  <a href="#audience" class="rail-dot" data-section="audience"><span class="label">Who It's For</span></a>
+  <a href="#founder" class="rail-dot" data-section="founder"><span class="label">Founder</span></a>
+  <a href="#intake" class="rail-dot" data-section="intake"><span class="label">Assessment</span></a>
+  <a href="#faq" class="rail-dot" data-section="faq"><span class="label">FAQ</span></a>
+</div>
+
+<!-- Mobile bottom CTA bar -->
+<div class="mobile-cta-bar" id="mobileCtaBar">
+  <a href="#checker" class="mcta-secondary">Check Domain</a>
+  <a href="#intake" class="mcta-primary">Get Assessment →</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">The inbound arm of a dual-brand MESP</span>
+        <h1>The 36-point gap between <em>"DMARC implemented"</em> and <em>actually protected.</em></h1>
+        <p class="lede">78% of domains have a DMARC record. Only 42% are at enforcement. Just 9% have actually moved to <span class="mono">p=reject</span>. The hawk closes that gap — domain by domain, all the way to 100% authentication.</p>
+        <p class="reputation-line">Your domain name is your firm's reputation made digital. When it's spoofable, that reputation belongs to anyone.</p>
+        <div class="hero-ctas">
+          <a href="#checker" class="btn btn-primary">
+            Check My Domain
+            <span class="arrow">→</span>
+          </a>
+          <a href="#intake" class="btn btn-ghost">Request an assessment</a>
+        </div>
+      </div>
+
+      <div class="counter-card" id="hero-counter">
+        <span class="ribbon">Live · Global Enforcement Rate</span>
+        <h3>Domains at DMARC enforcement (p=reject or p=quarantine)</h3>
+        <div class="big-number">
+          <span id="enforcement-num">0</span><span class="pct">%</span>
+        </div>
+        <div class="gauge">
+          <div class="gauge-fill" id="gauge-fill"></div>
+        </div>
+        <div class="gauge-track">
+          <span>0%</span>
+          <span style="color: var(--amber-400);">→ 100% AUTHENTICATION</span>
+        </div>
+        <div class="counter-stats">
+          <div>
+            <p><span id="stat-9">0</span>%</p>
+            <p>AT P=REJECT (FULL PROTECTION)</p>
+          </div>
+          <div>
+            <p>$<span id="stat-bec">0</span>B</p>
+            <p>BEC LOSSES, FBI IC3 2024</p>
+          </div>
+        </div>
+        <p class="source-line">Source: Valimail 2026 State of DMARC Report (Feb 2026) · EasyDMARC 2026 Adoption &amp; Enforcement Report · FBI IC3 Annual Report 2024.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="mission">
+  <div class="wrap">
+    <span class="eyebrow">Our mission</span>
+    <p>Get every domain we touch to <strong>p=reject</strong>. Not "monitoring." Not "quarantine." <em>Reject.</em> Your clients don't trust their inbox — they trust your domain name. When a spoof clears the inbox claiming to be from you, that trust is what gets spent.</p>
+  </div>
+</section>
+
+<!-- ============ COST OF INACTION ============ -->
+<section class="cost-section" id="threat">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The cost of inaction</span>
+      <h2>BEC isn't a hypothetical. It's a line item on someone's quarterly loss report — every quarter.</h2>
+    </div>
+
+    <div class="cost-grid">
+      <div>
+        <div class="bec-counter" id="bec-counter">
+          <p class="label">FBI IC3 · Reported BEC Losses · 2024</p>
+          <h3>What U.S. businesses lost to business email compromise in a single year.</h3>
+          <div class="dollar-counter">
+            <span class="small">$</span><span id="bec-num">0</span><span class="small">B</span>
+          </div>
+          <div class="bec-meta">
+            <div>
+              <p id="complaints-num">0</p>
+              <p>BEC COMPLAINTS FILED</p>
+            </div>
+            <div>
+              <p>$<span id="three-year">0</span>B</p>
+              <p>TOTAL 2022–2024</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Maryland sub-counter — geographically precise, audience-precise -->
+        <div class="maryland-strip" id="maryland-strip">
+          <div class="md-num">$<span id="maryland-num">0</span>M</div>
+          <div class="md-text">
+            <strong>Right here at home · Maryland, 2024</strong>
+            Lost by Maryland businesses just like the small law firms and accounting practices we serve. The federal number is the headline; this one is the neighborhood.
+          </div>
+        </div>
+      </div>
+
+      <div class="cost-side">
+        <h3>And the wire transfer is just the visible loss.</h3>
+        <p>Every successful spoof of your domain is a withdrawal from a reputation account that took years to build. The next legitimate email from your firm gets read with a fraction of a second of hesitation that wasn't there before — multiplied across every client inbox, that's the cost nobody puts on the IC3 report.</p>
+        <p>BEC is the second most profitable scam in cybercrime. It doesn't need malware, exploits, or sophisticated infrastructure — just a spoofed "From" address and someone moving fast.</p>
+        <p>DMARC at <span class="mono">p=reject</span> stops domain spoofing at the inbox. Without it, your domain is a free-to-use tool for impersonators targeting your clients, your vendors, your staff.</p>
+        <p class="footnote">Sources: FBI IC3 Internet Crime Report 2024; PSA I-091124-PSA. As of April 2025.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INCIDENTS (carousel) ============ -->
+<section class="incidents" id="incidents">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Real incidents · Public record</span>
+      <h2>The receipts are public. Each of these started with a spoofed or compromised email a properly-enforced DMARC posture would have made significantly harder.</h2>
+    </div>
+
+    <div class="carousel incidents" tabindex="0" aria-label="Real incidents carousel">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="incidents-track">
+          <!-- Populated by scripts/loader.js from content/incidents.json -->
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-arrows">
+          <button class="carousel-arrow prev" aria-label="Previous incident">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="carousel-arrow next" aria-label="Next incident">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots"></div>
+        <div class="carousel-counter">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="timeline-section" id="floor">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow bone">The compliance floor keeps rising</span>
+      <h2>Mailbox providers stopped asking. They started enforcing.</h2>
+      <p>For two decades email authentication was a "best practice." In the last 24 months it became a market access requirement. Here's where the floor is now — and where it's going.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <p class="tl-date">Feb 2024 · Google &amp; Yahoo Bulk Sender Mandate</p>
+        <h4 class="tl-title">DMARC required for bulk senders to Gmail and Yahoo Mail.</h4>
+        <p class="tl-desc">Senders pushing 5,000+ messages per day to Gmail or Yahoo were required to publish a DMARC record (<span class="mono">p=none</span> minimum), align SPF or DKIM, and honor one-click unsubscribe. Non-compliance meant deferrals and outright rejection.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">May 2025 · Microsoft Outlook / Hotmail</p>
+        <h4 class="tl-title">Microsoft followed suit on consumer mailboxes.</h4>
+        <p class="tl-desc">Microsoft applied bulk-sender authentication requirements to Outlook.com, Hotmail, and Live properties — closing the last major gap where unauthenticated bulk mail could still land in inboxes.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">Nov 2025 · Gmail Hard Reject</p>
+        <h4 class="tl-title">Gmail escalated from soft warnings to active rejection of non-compliant mail.</h4>
+        <p class="tl-desc">Per Google's reporting, sender requirements have already driven a 65% reduction in unauthenticated messages reaching Gmail — roughly 265 billion fewer unauthenticated messages in 2024 alone.</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date">2026 → Forward</p>
+        <h4 class="tl-title">The conversation has shifted from "do you have DMARC" to "is it enforcing."</h4>
+        <p class="tl-desc">The Valimail 2026 report shows enforcement plateauing at 42%. That plateau is where attackers are camping. Closing the 36-point Enforcement Gap is now a competitive trust signal — and a regulatory tailwind for industries with explicit duties of care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRY COMPLIANCE ============ -->
+<section id="compliance">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Compliance, by industry</span>
+      <h2>Your professional rules already require you to do this. We just make it operational.</h2>
+      <p>Domain authentication is not a technical curiosity. For attorneys and CPAs, the rules of professional responsibility and applicable safeguards regulations have been pulling in this direction for years. We translate the rule into the DNS record.</p>
+    </div>
+
+    <div class="industry-grid">
+      <div class="industry-card">
+        <div class="industry-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 3v18M5 8l7-3 7 3M3 12c0 2 2 3 4 3s4-1 4-3l-4-7zM13 12c0 2 2 3 4 3s4-1 4-3l-4-7z"/>
+          </svg>
+        </div>
+        <h3>Law Firms</h3>
+        <p class="who">ABA MODEL RULES OF PROFESSIONAL CONDUCT</p>
+        <p class="lead">Confidentiality and competence aren't optional, and the ABA's formal opinions have been clear since 2017: technological competence is a duty, not a virtue. DMARC enforcement maps directly to three rules.</p>
+        <ul class="rule-list">
+          <li>
+            <span class="rule-tag">Rule 1.1</span>
+            <span class="rule-text"><strong>Competence</strong>Including the duty to keep abreast of changes in the law and its practice — explicitly including the benefits and risks of relevant technology (Comment 8).</span>
+          </li>
+          <li>
+            <span class="rule-tag">Rule 1.6</span>
+            <span class="rule-text"><strong>Confidentiality of Information</strong>Requires reasonable efforts to prevent inadvertent or unauthorized disclosure of client information. A spoofable domain is not a reasonable effort.</span>
+          </li>
+          <li>
+            <span class="rule-tag">Rule 1.15</span>
+            <span class="rule-text"><strong>Safekeeping Property</strong>Trust account wire fraud — particularly in real estate closings — is one of the most active BEC vectors. Authentication directly safeguards client funds in motion.</span>
+          </li>
+          <li>
+            <span class="rule-tag">MD PIPA</span>
+            <span class="rule-text"><strong>Maryland Personal Information Protection Act</strong>Requires "reasonable security procedures" for personal information held by businesses operating in Maryland. Domain authentication is part of a defensible posture.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="industry-card">
+        <div class="industry-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="4" y="3" width="16" height="18" rx="1"/>
+            <path d="M8 7h8M8 11h8M8 15h5M16 17l2 2 3-3"/>
+          </svg>
+        </div>
+        <h3>CPA Firms</h3>
+        <p class="who">IRS · FTC SAFEGUARDS · PCI DSS</p>
+        <p class="lead">Tax preparers are explicitly named in federal information security obligations. The rules are not aspirational — they are referenced by examiners, by insurers, and by the IRS itself.</p>
+        <ul class="rule-list">
+          <li>
+            <span class="rule-tag">IRS Pub 4557</span>
+            <span class="rule-text"><strong>Safeguarding Taxpayer Data</strong>The IRS's required information security program for tax professionals includes specific guidance on email authentication and protecting client communications from impersonation.</span>
+          </li>
+          <li>
+            <span class="rule-tag">FTC Safeguards</span>
+            <span class="rule-text"><strong>16 CFR Part 314</strong>The amended FTC Safeguards Rule requires written information security programs for financial institutions — which the FTC defines to include CPA firms preparing tax returns.</span>
+          </li>
+          <li>
+            <span class="rule-tag">PCI DSS v4.0</span>
+            <span class="rule-text"><strong>Where Card Data Touches Email</strong>For any practice handling card payments or processor communications, v4.0's anti-phishing controls (Req 5.4) explicitly reference email authentication mechanisms.</span>
+          </li>
+          <li>
+            <span class="rule-tag">MD PIPA</span>
+            <span class="rule-text"><strong>Maryland Personal Information Protection Act</strong>State-level reasonable-security requirements that apply to any practice handling client tax records, SSNs, or financial information in Maryland.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS (carousel) ============ -->
+<section class="tools-section" id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Hawk's Toolkit</span>
+      <h2>Forensic-grade analysis. Built in-house. No black boxes.</h2>
+      <p>Most "email security" products are licensed scanners with a UI bolted on. The hawk's tools are purpose-built around the way real BEC investigations actually work — header forensics, alignment analysis, and policy posture, in language a partner can hand to a client.</p>
+    </div>
+
+    <div class="carousel products" tabindex="0" aria-label="Hawk's tools carousel">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="products-track">
+          <!-- Populated by scripts/loader.js from content/products.json -->
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-arrows">
+          <button class="carousel-arrow prev" aria-label="Previous tool">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="carousel-arrow next" aria-label="Next tool">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots"></div>
+        <div class="carousel-counter">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAVE PLAY METHODOLOGY ============ -->
+<section class="save-play">
+  <div class="wrap">
+    <div class="save-play-card">
+      <div>
+        <span class="eyebrow">Methodology</span>
+        <h3>The Save Play.</h3>
+        <p>The path from "no DMARC" to <span class="mono">p=reject</span> is not a switch you flip. There's a name for the disciplined sequence we use to get there without breaking a single piece of legitimate mail.</p>
+        <p>We watch every IP that sends as your domain. We map every legitimate sender. We move methodically through the policies. The hawk is patient — because <em>you</em> can't afford for us to be reckless.</p>
+      </div>
+      <div class="save-play-stages">
+        <div class="stage-step">
+          <div class="stage-num">1</div>
+          <div class="stage-text">
+            <strong>Observe — p=none</strong>
+            <span>Aggregate reports flow into DMARCHawk. Every legitimate sender gets identified.</span>
+          </div>
+        </div>
+        <div class="stage-step">
+          <div class="stage-num">2</div>
+          <div class="stage-text">
+            <strong>Squeeze — p=quarantine</strong>
+            <span>Turn the screw without breaking the bottle. Watch what changes.</span>
+          </div>
+        </div>
+        <div class="stage-step active">
+          <div class="stage-num">3</div>
+          <div class="stage-text">
+            <strong>Close the gate — p=reject</strong>
+            <span>Full enforcement. Spoofs die at the doorstep.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOMAIN CHECKER ============ -->
+<section class="checker-section" id="checker">
+  <div class="wrap">
+    <div class="checker-card">
+      <span class="eyebrow">Live domain check · DNS-over-HTTPS</span>
+      <h2>Where is your domain right now?</h2>
+      <p class="sub">Enter any domain. We'll pull its actual DMARC and SPF records from public DNS in real time and tell you, in plain English, whether you are protected, partially protected, or wide open.</p>
+
+      <div class="checker-form">
+        <input
+          type="text"
+          id="domain-input"
+          placeholder="yourcompany.com"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="check-btn" id="check-btn">Check Posture →</button>
+      </div>
+
+      <div class="checker-result" id="checker-result">
+        <div class="verdict-row">
+          <div class="verdict-badge" id="verdict-badge">?</div>
+          <div class="verdict-text">
+            <h4 id="verdict-title">—</h4>
+            <p id="verdict-sub">—</p>
+          </div>
+        </div>
+
+        <div class="record-grid">
+          <div class="record-row">
+            <span class="record-label">Domain</span>
+            <span class="record-value" id="rec-domain">—</span>
+          </div>
+          <div class="record-row">
+            <span class="record-label">DMARC</span>
+            <span class="record-value" id="rec-dmarc">—</span>
+          </div>
+          <div class="record-row">
+            <span class="record-label">Policy</span>
+            <span class="record-value" id="rec-policy">—</span>
+          </div>
+          <div class="record-row">
+            <span class="record-label">SPF</span>
+            <span class="record-value" id="rec-spf">—</span>
+          </div>
+          <div class="record-row">
+            <span class="record-label">Reporting</span>
+            <span class="record-value" id="rec-rua">—</span>
+          </div>
+        </div>
+
+        <div class="checker-cta">
+          <p id="cta-text">Want a forensic-grade write-up of your full posture?</p>
+          <a href="#intake" class="btn btn-primary">Request an assessment →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO THIS IS FOR ============ -->
+<section class="audience-section" id="audience">
+  <div class="wrap">
+    <div class="audience-grid">
+      <div class="audience-side">
+        <span class="eyebrow">Who this is for</span>
+        <h2>Built for the firms most exposed and least served.</h2>
+        <p>The enterprise market has dozens of email security vendors fighting for a seat at the table. Small law firms and CPA practices have… a few generic MSPs who handle email as one of fifty services they touch lightly. The hawk was built specifically to close that gap.</p>
+      </div>
+
+      <ul class="audience-list">
+        <li>
+          <span class="check">✓</span>
+          <span>
+            <strong>Small law firms · 1 to 25 attorneys</strong>
+            Where every client communication carries trust and every wire transfer is a target.
+          </span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>
+            <strong>CPA practices · Under 50 employees</strong>
+            Tax season is BEC season. The IRS is watching. So are attackers.
+          </span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>
+            <strong>Professional services · Baltimore &amp; the DMV</strong>
+            Local. Reachable. Same time zone. Same threat landscape.
+          </span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>
+            <strong>Email-dependent businesses without in-house security</strong>
+            If a phishing or spoofing incident could cause six-figure financial harm or career-ending reputational damage — and you don't have a CISO — you are the audience.
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER ============ -->
+<section class="founder-section" id="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <!-- Initials placeholder. TODO (Claude Code): swap for real headshot when available. -->
+      <div class="founder-mark" aria-label="Andre Milligan"></div>
+      <div class="founder-info">
+        <span class="eyebrow">Founded by</span>
+        <h2>Andre Milligan</h2>
+        <p class="role">Founder · Operator · Baltimore, Maryland</p>
+        <p>A career sysadmin and managed services professional in the Baltimore area. Andre built and deployed TracerHawk — and the operational architecture that powers it — as a working production system before incorporating the company that operates it.</p>
+        <p>The architecture, methodology, and tooling are his own. The vision is to bring enterprise-grade email infrastructure intelligence to the small business market that has historically been priced out, talked down to, or ignored entirely.</p>
+        <p>You will not be passed to a junior account manager. You will work directly with the operator who built the platform.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTAKE ============ -->
+<section class="intake-section" id="intake">
+  <div class="wrap">
+    <div class="intake-grid">
+      <div class="intake-side">
+        <span class="eyebrow">Free posture assessment</span>
+        <h2>Get the hawk on your side.</h2>
+        <p>A no-cost, no-obligation assessment of your current DMARC, SPF, and DKIM posture and a written report — the same report we'd hand a managing partner. No sales theater, no scare tactics. Just a clear-eyed read on where you are and what it would take to get to <span class="mono">p=reject</span>.</p>
+        <ul>
+          <li>Full DMARC, SPF, and DKIM record analysis</li>
+          <li>Industry-specific compliance mapping (Rule 1.6, IRS Pub 4557, MD PIPA, etc.)</li>
+          <li>Forensic write-up suitable for leadership or insurance</li>
+          <li>A concrete Save Play remediation plan with sequencing</li>
+          <li>Direct line to the operator — no junior account managers</li>
+        </ul>
+      </div>
+
+      <form class="intake-form" id="intake-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Your Name</label>
+            <input type="text" id="f-name" required />
+          </div>
+          <div class="field">
+            <label for="f-role">Your Role</label>
+            <input type="text" id="f-role" placeholder="e.g. Managing Partner, IT Director" required />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-firm">Firm / Company</label>
+            <input type="text" id="f-firm" required />
+          </div>
+          <div class="field">
+            <label for="f-industry">Industry</label>
+            <select id="f-industry" required>
+              <option value="">Select…</option>
+              <option>Law Firm</option>
+              <option>CPA / Accounting</option>
+              <option>Healthcare</option>
+              <option>Financial Services</option>
+              <option>Real Estate / Title</option>
+              <option>Other Professional Services</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-domain">Primary Email Domain</label>
+            <input type="text" id="f-domain" placeholder="yourcompany.com" required />
+          </div>
+          <div class="field">
+            <label for="f-email">Best Contact Email</label>
+            <input type="email" id="f-email" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-policy">Current DMARC Policy (if known)</label>
+          <select id="f-policy">
+            <option value="unsure">Not sure — that's why I'm here</option>
+            <option value="none">p=none (monitoring only)</option>
+            <option value="quarantine">p=quarantine</option>
+            <option value="reject">p=reject</option>
+            <option value="no-record">No DMARC record</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-concern">What's prompting the outreach?</label>
+          <textarea id="f-concern" placeholder="Recent incident, new regulation, vendor request, insurance audit, just doing the right thing…"></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">
+            Send to InboxHawk
+            <span class="arrow">→</span>
+          </button>
+        </div>
+
+        <p class="privacy">↳ Goes directly to the operator. We don't sell, share, or syndicate this data.</p>
+
+        <div class="form-success" id="form-success">
+          ✓ Got it. We'll be in touch within one business day from a real human at the InboxHawk operator address.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Frequently asked</span>
+      <h2>Questions we get every week from partners and IT directors.</h2>
+    </div>
+
+    <div class="faq-list" id="faq-list">
+      <!-- Populated by scripts/faq.js from content/faq.json -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <img src="assets/inboxhawk-logo.png" alt="InboxHawk" class="brand-logo" />
+        <div class="brand-text">
+          <strong>InboxHawk</strong>
+          <span>Your eye in the digital sky</span>
+        </div>
+      </a>
+      <p>The inbound security arm of a dual-brand managed email service provider. We move organizations to DMARC enforcement — full domain authentication, full protection.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Product</h5>
+      <a href="#tools">TracerHawk</a>
+      <a href="#tools">DMARCHawk</a>
+      <a href="#tools">HawksNest</a>
+      <a href="#checker">Domain Checker</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Audience</h5>
+      <a href="#compliance">Law Firms</a>
+      <a href="#compliance">CPA Firms</a>
+      <a href="#threat">The BEC Problem</a>
+      <a href="#floor">Compliance Floor</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Engage</h5>
+      <a href="#intake">Free Assessment</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://inboxstork.com" target="_blank" rel="noopener">InboxStork — outbound →</a>
+      <a href="mailto:contact@inboxhawkllc.com">contact@inboxhawkllc.com</a>
+    </div>
   </div>
 
-  <footer>© 2025 InboxHawk — All rights reserved.</footer>
+  <div class="wrap footer-bottom">
+    <span>© 2026 InboxHawk, LLC · A Maryland Limited Liability Company · Founded by Andre Milligan</span>
+    <span>InboxHawk LLC and InboxStork LLC are independent entities.</span>
+  </div>
+</footer>
 
-  <script>
-    // On page load
-    window.addEventListener('DOMContentLoaded', () => {
-      const bg = document.getElementById('backgroundImg');
-      const hasVisited = localStorage.getItem('inboxhawkVisited');
+<!-- ============ SCRIPTS ============ -->
+<!-- Load order matters:
+     1. nav.js — handles menus and scroll behavior
+     2. counters.js — sets up animated number counters
+     3. checker.js — wires up the domain checker
+     4. form.js — wires up the intake form
+     5. faq.js — loads FAQ from JSON, builds accordion
+     6. loader.js — loads incidents + products JSON, then dynamically loads carousel.js
+-->
+<script src="scripts/nav.js"></script>
+<script src="scripts/counters.js"></script>
+<script src="scripts/checker.js"></script>
+<script src="scripts/form.js"></script>
+<script src="scripts/faq.js"></script>
+<script src="scripts/loader.js"></script>
 
-      if (!hasVisited) {
-        // First visit: add animation class
-        bg.classList.add('animate');
-
-        // When animation ends, update localStorage and remove animation class
-        bg.addEventListener('animationend', () => {
-          bg.classList.remove('animate');
-          bg.style.opacity = '0.05'; // final settled opacity
-          bg.style.transform = 'scale(1)'; // final settled scale
-          localStorage.setItem('inboxhawkVisited', 'true');
-        });
-      } else {
-        // Returning visitor: ensure settled styles, no animation
-        bg.style.opacity = '0.05';
-        bg.style.transform = 'scale(1)';
-      }
-    });
-  </script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+[
+  {
+    "q": "What does p=reject actually do — and why isn't p=quarantine enough?",
+    "a": [
+      "<strong>p=reject</strong> tells receiving mail servers to drop messages claiming to be from your domain that fail authentication. They never reach the recipient — not the inbox, not the spam folder, not at all.",
+      "<strong>p=quarantine</strong> sends those same messages to spam. Spam folders are still inboxes that get checked, and on mobile clients the visual differentiation between 'Inbox' and 'Spam' is roughly one tap. A quarantined spoof of your CFO is still a spoof of your CFO sitting in front of an employee.",
+      "Quarantine is a useful step on the road. It is not a destination."
+    ]
+  },
+  {
+    "q": "Will moving to p=reject break our legitimate mail?",
+    "a": [
+      "This is the single biggest objection — and it's a fair one. The honest answer: <em>only if you skip the diligence.</em> If you flip to <span class=\"mono\">p=reject</span> tomorrow without first auditing every legitimate sender (your CRM, your billing system, your help desk, the third-party newsletter tool from 2019 that nobody documented), yes — you will reject your own mail.",
+      "We have a name for the disciplined path through this: the <strong>Save Play methodology</strong>. Spend several weeks at <span class=\"mono\">p=none</span> watching every IP that sends as your domain through DMARCHawk, then move methodically through quarantine to reject as confidence builds. A well-run Save Play breaks no legitimate mail."
+    ]
+  },
+  {
+    "q": "Do you also help with email deliverability — making sure our legitimate emails actually reach the inbox?",
+    "a": [
+      "Short answer: yes — but through a sister company, not InboxHawk.",
+      "Email has two distinct problems. <strong>Inbound security</strong> (your domain being used to impersonate you) is what InboxHawk solves. <strong>Outbound deliverability</strong> (your legitimate messages landing in inboxes instead of spam folders) is a different discipline with different tools, different metrics, and different liability profiles. Companies that claim to do both under one roof usually do one well and the other as an afterthought.",
+      "The founder of InboxHawk also founded <a href=\"https://inboxstork.com\" target=\"_blank\" rel=\"noopener\"><strong>InboxStork, LLC</strong></a> — an independent Maryland LLC focused entirely on outbound deliverability. The two operate as a <strong>Managed Email Service Provider (MESP)</strong>: one strategic relationship covering both halves of email infrastructure, with two clean contracts and contained liability. Engage either independently, or both as needed."
+    ]
+  },
+  {
+    "q": "We're a 12-person law firm. Is this overkill for us?",
+    "a": [
+      "The opposite. Mid-market and small firms are where BEC is most lucrative for attackers — large enough to move real money, small enough to lack a dedicated security team. The Scoular case ($17M lost) involved a 130-year-old Nebraska commodities firm. Toyota Boshoku's loss was at a single subsidiary.",
+      "Your obligation under Rule 1.6 doesn't scale with headcount."
+    ]
+  },
+  {
+    "q": "How long does an assessment take, and what does it produce?",
+    "a": [
+      "The initial posture read takes about 30 minutes of analysis once you give us the green light to query your public records. The deliverable is a written report — typically 6–10 pages — covering current DMARC/SPF/DKIM posture, every sending source we can identify, a remediation roadmap, and the specific compliance hooks for your industry.",
+      "It's free. There's no upsell trick at the end. If we're not the right fit you'll walk away with a useful document."
+    ]
+  },
+  {
+    "q": "How is InboxHawk different from a generic email security gateway?",
+    "a": [
+      "Gateways inspect content. We work the authentication layer — the cryptographic and DNS-level proofs that a message actually came from who it claims to. Both layers matter; they solve different problems.",
+      "You can have a top-tier secure email gateway and still be wide open to your <em>own</em> domain being spoofed at thousands of partners and clients you don't control. DMARC enforcement protects the people who receive mail 'from' you. That is a different problem, and it is the problem the hawk hunts."
+    ]
+  },
+  {
+    "q": "What does this cost?",
+    "a": [
+      "The assessment is free. Engagement pricing depends on the size of your sending footprint and the complexity of the path to enforcement. We publish hourly rates for consulting, incident response, after-hours, and expert witness work, and most engagements run as a fixed-scope project rather than open-ended retainer.",
+      "Concrete pricing is shared on the assessment call."
+    ]
+  },
+  {
+    "q": "We already have DMARC at p=none. Are we covered for the Google/Yahoo mandate?",
+    "a": [
+      "For mailbox provider deliverability — yes, mostly. <span class=\"mono\">p=none</span> satisfies the technical floor of the Feb 2024 mandate.",
+      "For <em>actual protection against spoofing</em> — no. <span class=\"mono\">p=none</span> is monitoring-only. Per the Valimail 2026 report, this is exactly the trap most organizations are stuck in: technically compliant, functionally unprotected. The 36-point gap between the 78% with a record and the 42% at enforcement is mostly people sitting at <span class=\"mono\">p=none</span>."
+    ]
+  }
+]

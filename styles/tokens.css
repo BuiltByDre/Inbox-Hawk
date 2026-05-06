@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Design tokens
+   All colors, type scales, and spacing live here. Change once, ripple everywhere.
+   ========================================================================== */
+
+:root {
+  /* ---- Colors pulled from the InboxHawk logo ---- */
+
+  /* Slate / dark backgrounds (the body of the hawk) */
+  --slate-950: #0a0e14;
+  --slate-900: #0f1419;
+  --slate-850: #161c25;
+  --slate-800: #1e2832;
+  --slate-700: #2a3744;
+  --slate-600: #3a4757;
+  --slate-500: #5a6878;
+  --slate-400: #8a96a4;
+
+  /* Steel grays (the mechanical components) */
+  --steel-500: #6b7785;
+  --steel-400: #8a95a4;
+  --steel-300: #b1bac6;
+
+  /* Amber / raptor orange (PRIMARY brand accent — the feathers, the targeting eye) */
+  --amber-700: #8c3a08;
+  --amber-600: #b54d10;
+  --amber-500: #d9621f;
+  --amber-400: #e57633;
+  --amber-300: #f09155;
+  --amber-200: #f5b285;
+
+  /* Cyan (the natural eye — sparingly used trust accent) */
+  --cyan-500: #3a8fc4;
+  --cyan-400: #5aa3d2;
+  --cyan-300: #8cc1e0;
+
+  /* Bone / paper backgrounds */
+  --bone: #f0eee8;
+  --bone-soft: #e2dfd6;
+  --paper: #faf8f3;
+  --paper-warm: #f5f1e8;
+
+  /* Ink (foreground text on light) */
+  --ink: #14181f;
+  --ink-soft: #2e3744;
+  --ink-mute: #5a6878;
+
+  /* Rules (dividers) */
+  --rule: #d6d2c8;
+  --rule-soft: #e8e4d8;
+
+  /* Status colors */
+  --danger: #c5391d;
+  --danger-soft: #e85a3a;
+  --success: #2a8a4a;
+  --success-soft: #4ba56a;
+
+  /* ---- Shadows ---- */
+  --shadow-sharp: 0 1px 0 rgba(10,14,20,0.06), 0 12px 32px -16px rgba(10,14,20,0.18);
+  --shadow-deep: 0 28px 70px -32px rgba(10,14,20,0.55);
+  --shadow-glow-amber: 0 0 0 1px rgba(217,98,31,0.2), 0 16px 48px -20px rgba(217,98,31,0.4);
+
+  /* ---- Layout ---- */
+  --max-width: 1280px;
+  --gutter: 32px;
+  --gutter-mobile: 20px;
+
+  /* ---- Type scale (set with clamp for fluid sizing) ---- */
+  --type-display: clamp(2.4rem, 5.6vw, 4.4rem);
+  --type-h2: clamp(1.9rem, 4.2vw, 3rem);
+  --type-h3: clamp(1.4rem, 2.2vw, 1.8rem);
+  --type-body-lg: clamp(1rem, 1.5vw, 1.18rem);
+  --type-body: 1rem;
+  --type-small: 0.92rem;
+
+  /* ---- Fonts ---- */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter Tight', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+}

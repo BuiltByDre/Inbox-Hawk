@@ -1,0 +1,210 @@
+/* ==========================================================================
+   Carousel — used for both the Incidents carousel and the Tools carousel.
+   Snap-scrolling on mobile, arrow-button navigation on desktop, dot indicators.
+   ========================================================================== */
+
+.carousel {
+  position: relative;
+  margin-top: 40px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Each slide is a fixed proportion of the viewport */
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: flex; /* allows tool cards to fill height */
+}
+
+/* Two-up on tablet, three-up on desktop for products. */
+.carousel.products .carousel-slide {
+  flex: 0 0 calc(33.333% - 16px);
+}
+@media (max-width: 980px) {
+  .carousel.products .carousel-slide {
+    flex: 0 0 calc(50% - 12px);
+  }
+}
+@media (max-width: 680px) {
+  .carousel.products .carousel-slide {
+    flex: 0 0 100%;
+  }
+}
+
+/* Incidents stay one-up always (each one is a long story). */
+.carousel.incidents .carousel-slide {
+  flex: 0 0 100%;
+}
+
+/* ---- Incident slide content ---- */
+.incident-slide {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+  width: 100%;
+}
+@media (max-width: 720px) {
+  .incident-slide {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 24px;
+  }
+}
+
+.incident-meta-block .year {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-weight: 600;
+  color: var(--amber-500);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+.incident-meta-block .amount {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.incident-body .who {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.incident-body h4 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.incident-body p {
+  color: var(--ink-soft);
+  max-width: 720px;
+  line-height: 1.6;
+}
+.incident-body .takeaway {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--slate-800);
+}
+.incident-body .takeaway strong {
+  font-style: normal;
+  color: var(--amber-500);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ---- Carousel controls ---- */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 16px;
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--slate-900);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.carousel-arrow:hover:not(:disabled) {
+  background: var(--slate-900);
+  border-color: var(--slate-900);
+  color: var(--bone);
+  transform: translateY(-1px);
+}
+.carousel-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.carousel-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---- Carousel dot indicators ---- */
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rule);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+}
+.carousel-dot.active {
+  background: var(--amber-500);
+  width: 28px;
+  border-radius: 4px;
+}
+
+.carousel-counter {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.1em;
+}
+
+/* On dark backgrounds (when carousel sits in a dark section) */
+.carousel.on-dark .carousel-arrow {
+  background: rgba(240, 238, 232, 0.06);
+  border-color: rgba(240, 238, 232, 0.2);
+  color: var(--bone);
+}
+.carousel.on-dark .carousel-arrow:hover:not(:disabled) {
+  background: var(--amber-500);
+  border-color: var(--amber-500);
+  color: var(--paper);
+}
+.carousel.on-dark .carousel-dot { background: rgba(240, 238, 232, 0.2); }
+.carousel.on-dark .carousel-dot.active { background: var(--amber-500); }
+.carousel.on-dark .carousel-counter { color: var(--bone-soft); }
